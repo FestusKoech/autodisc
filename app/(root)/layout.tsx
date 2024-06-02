@@ -1,4 +1,4 @@
- import type { Metadata } from "next";
+import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "../globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
@@ -11,7 +11,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: 'Webscale',
-  description:'social site'
+  description: 'social site'
 }
 
 
@@ -22,30 +22,22 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-    <html lang="en">
+      <html lang="en">
       <body className={inter.className}>
-        <TopBar />
+          <TopBar />
 
-        <main>
+          <main className='flex flex-row'>
+            <LeftSidebar />
+            <section className='main-container'>
+              <div className='w-full max-w-4xl'>{children}</div>
+            </section>
+           
+            <RightSidebar />
+          </main>
 
-          <section className="main-container">
-
-            <div className="w-full max-w-4xl">
-              {children}
-
-              </div>
-
-          </section>
-          <LeftSidebar />
-
-          <RightSidebar /> 
-
-        </main>
-      
-
-        <BottomBar />
-      </body>
-    </html>
-    </ClerkProvider> 
+          <BottomBar />
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
