@@ -51,7 +51,10 @@ function PostThread({ userId }: Props) {
 
   return (
     <Form {...form}>
-      <form className='mt-10 flex flex-col justify-start gap-10' onSubmit={form.handleSubmit(onSubmit)}>
+      <form
+        className='mt-10 flex flex-col justify-start gap-10'
+        onSubmit={form.handleSubmit(onSubmit)}
+      >
         <FormField
           control={form.control}
           name='thread'
